@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steven Chen</title>
+<meta name="description" content="I build trading strategies with Claude Code. Four months, 1,356 commits, a few that survived and went live.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fdfdfc; --fg: #1c1b19; --muted: #6f6b64; --rule: #e4e1db;
+    --accent: #a8482a; --card: #f5f3ef; --btn-fg: #fdfdfc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15140f; --fg: #e9e6e0; --muted: #99948b; --rule: #2b2924;
+      --accent: #d97757; --card: #1d1c18; --btn-fg: #15140f;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.7 ui-sans-serif, -apple-system, "Segoe UI", "PingFang TC", "Noto Sans TC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 620px; margin: 0 auto; padding: 64px 24px 96px; position: relative; }
+
+  #lang {
+    position: absolute; top: 24px; right: 24px;
+    background: none; border: 1px solid var(--rule); color: var(--muted);
+    font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 999px; cursor: pointer;
+  }
+  #lang:hover { border-color: var(--accent); color: var(--accent); }
+
+  h1 { font-size: 33px; line-height: 1.12; margin: 0 0 10px; letter-spacing: -0.024em; }
+  .lead { font-size: 19px; line-height: 1.5; margin: 0 0 6px; }
+  .place { color: var(--muted); font-size: 15px; margin: 0 0 34px; }
+
+  .hook {
+    background: var(--card); border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 0 0 32px;
+    font-size: 16px; line-height: 1.6;
+  }
+  .hook p { margin: 0; }
+  .hook p + p { margin-top: 6px; font-weight: 600; }
+
+  .cta { margin: 0 0 40px; }
+  .cta p { margin: 0 0 14px; font-size: 17px; }
+  .btn {
+    display: inline-block; background: var(--accent); color: var(--btn-fg);
+    padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 15px;
+    border-bottom: none;
+  }
+  .btn:hover { opacity: 0.88; border-bottom: none; }
+  .also { color: var(--muted); font-size: 14px; margin: 14px 0 0; }
+
+  h2 {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--muted); font-weight: 600;
+    margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 20px; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--accent); }
+
+  .stat { display: flex; gap: 32px; flex-wrap: wrap; margin: 0 0 16px; }
+  .stat b { display: block; font-size: 24px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+  .stat span { color: var(--muted); font-size: 13px; }
+
+  .role { margin-bottom: 20px; }
+  .role-head { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; align-items: baseline; }
+  .role-title { font-weight: 600; }
+  .role-co { color: var(--muted); }
+  .role-date { color: var(--muted); font-size: 14px; white-space: nowrap; }
+  .role-note { color: var(--muted); margin: 2px 0 0; font-size: 14px; }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+  a:hover { border-bottom-color: var(--accent); }
+  .links { display: flex; gap: 20px; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+  .links li { margin: 0; }
+
+  footer { margin-top: 52px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+  [hidden] { display: none !important; }
+  @media (max-width: 520px) {
+    main { padding: 60px 20px 72px; }
+    #lang { top: 18px; right: 20px; }
+    h1 { font-size: 28px; } .lead { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<button id="lang" type="button">中文</button>
+
+<!-- ================= ENGLISH ================= -->
+<div class="v" data-lang="en">
+
+  <h1>Steven Chen</h1>
+  <p class="lead">I build trading strategies with Claude Code.</p>
+  <p class="place">Quant research, on my own. Tainan, Taiwan.</p>
+
+  <div class="hook">
+    <p>Four months. 1,356 commits.</p>
+    <p>Most strategies did not survive the backtest. A few did, and they run live.</p>
+  </div>
+
+  <div class="cta">
+    <p>Want to build or test a strategy with an AI agent? I have done this every day for four months.</p>
+    <a class="btn" href="https://t.me/chen4hao">Message me on Telegram</a>
+    <p class="also">Also open to data analysis, data pipelines, and back-end work.</p>
+  </div>
+
+  <h2>Track record</h2>
+  <div class="stat">
+    <div><b>1,356</b><span>commits</span></div>
+    <div><b>4</b><span>months</span></div>
+    <div><b>3</b><span>repositories</span></div>
+  </div>
+  <p>Since May, Claude Code has been my research assistant.</p>
+  <p>Write a strategy. Backtest it. Read what came back. Change it. Run it again.</p>
+  <p>The agent does not work alone. I work with it, step by step.</p>
+  <p>I also keep a long-running prediction journal, based on the I Ching.</p>
+
+  <h2>How I keep it honest</h2>
+  <p>An agent will change the target after it sees the result. These rules stop that.</p>
+  <ul>
+    <li>Write the plan first. Say what result will make us stop.</li>
+    <li>Lock the target before the run starts.</li>
+    <li>Keep handoff notes, so last week does not get lost.</li>
+  </ul>
+
+  <h2>Experience</h2>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">Senior Back-end Dev</span> <span class="role-co">· Scallop</span></span>
+      <span class="role-date">Mar 2023 – Mar 2026</span>
+    </div>
+    <p class="role-note">DeFi lending on Sui. Remote, Taiwan.</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">Manager &amp; Chairman's Assistant</span> <span class="role-co">· Chao Shun Investment</span></span>
+      <span class="role-date">Nov 2009 – Apr 2022</span>
+    </div>
+    <p class="role-note">Value investing, quantitative research. Tainan.</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">Business Analyst</span> <span class="role-co">· Magnific Capital Management</span></span>
+      <span class="role-date">Sep 2008 – Apr 2009</span>
+    </div>
+    <p class="role-note">Value investing, valuation. Taipei.</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">Junior Manager</span> <span class="role-co">· Fubon Securities</span></span>
+      <span class="role-date">Apr 2005 – Mar 2007</span>
+    </div>
+    <p class="role-note">Java, middle management. Taipei.</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">System Analyst</span> <span class="role-co">· IBF Securities</span></span>
+      <span class="role-date">Aug 2003 – Apr 2005</span>
+    </div>
+    <p class="role-note">Full-stack development, system architecture. Taipei.</p>
+  </div>
+
+  <h2>Education</h2>
+  <p>National Chiao Tung University</p>
+
+  <h2>Elsewhere</h2>
+  <ul class="links">
+    <li><a href="https://github.com/chen4hao">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/chen-steven-59aa7487/">LinkedIn</a></li>
+    <li><a href="https://x.com/chen4hao">X</a></li>
+    <li><a href="https://t.me/chen4hao">Telegram</a></li>
+  </ul>
+
+  <footer>Tainan, Taiwan</footer>
+</div>
+
+<!-- ================= 繁體中文 ================= -->
+<div class="v" data-lang="zh" hidden>
+
+  <h1>Steven Chen</h1>
+  <p class="lead">我跟 Claude Code 一起開發量化交易策略。</p>
+  <p class="place">一個人做量化研究。台南。</p>
+
+  <div class="hook">
+    <p>四個月，1,356 次 commit。</p>
+    <p>大部分策略沒撐過回測。留下來的幾個，現在在實盤跑。</p>
+  </div>
+
+  <div class="cta">
+    <p>想跟 AI agent 一起開發或驗證策略嗎？這件事我每天做，做了四個月。</p>
+    <a class="btn" href="https://t.me/chen4hao">來 Telegram 找我</a>
+    <p class="also">資料分析、資料管線、後端開發也接。</p>
+  </div>
+
+  <h2>做過的量</h2>
+  <div class="stat">
+    <div><b>1,356</b><span>次 commit</span></div>
+    <div><b>4</b><span>個月</span></div>
+    <div><b>3</b><span>個 repo</span></div>
+  </div>
+  <p>五月開始，Claude Code 是我的研究助理。</p>
+  <p>寫一個策略。跑回測。看結果。改掉。再跑一次。</p>
+  <p>agent 不是自己跑。是我跟它一步一步做出來的。</p>
+  <p>我另外還寫一本長期的預測日誌，用易經。</p>
+
+  <h2>怎麼讓它誠實</h2>
+  <p>agent 看到結果之後會回頭改目標。這幾條規矩擋住它。</p>
+  <ul>
+    <li>先寫計畫。先講好看到什麼結果就收手。</li>
+    <li>開跑之前先鎖定目標。</li>
+    <li>留交接筆記，上禮拜的事才不會不見。</li>
+  </ul>
+
+  <h2>經歷</h2>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">Senior Back-end Dev</span> <span class="role-co">· Scallop</span></span>
+      <span class="role-date">2023.03 – 2026.03</span>
+    </div>
+    <p class="role-note">Sui 上的 DeFi 借貸協議。遠端，台灣。</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">經理暨董事長特助</span> <span class="role-co">· 兆順投資</span></span>
+      <span class="role-date">2009.11 – 2022.04</span>
+    </div>
+    <p class="role-note">價值投資、量化研究。台南。</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">Business Analyst</span> <span class="role-co">· Magnific Capital Management</span></span>
+      <span class="role-date">2008.09 – 2009.04</span>
+    </div>
+    <p class="role-note">價值投資、評價。台北。</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">襄理</span> <span class="role-co">· 富邦證券</span></span>
+      <span class="role-date">2005.04 – 2007.03</span>
+    </div>
+    <p class="role-note">Java、中階管理。台北。</p>
+  </div>
+  <div class="role">
+    <div class="role-head">
+      <span><span class="role-title">系統分析師</span> <span class="role-co">· 國票綜合證券</span></span>
+      <span class="role-date">2003.08 – 2005.04</span>
+    </div>
+    <p class="role-note">全端開發、系統架構。台北。</p>
+  </div>
+
+  <h2>學歷</h2>
+  <p>國立交通大學</p>
+
+  <h2>其他地方</h2>
+  <ul class="links">
+    <li><a href="https://github.com/chen4hao">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/chen-steven-59aa7487/">LinkedIn</a></li>
+    <li><a href="https://x.com/chen4hao">X</a></li>
+    <li><a href="https://t.me/chen4hao">Telegram</a></li>
+  </ul>
+
+  <footer>台南</footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('lang');
+  var views = document.querySelectorAll('.v');
+  function stored() { try { return localStorage.getItem('lang'); } catch (e) { return null; } }
+  function save(v) { try { localStorage.setItem('lang', v); } catch (e) {} }
+  function apply(lang) {
+    views.forEach(function (v) { v.hidden = (v.dataset.lang !== lang); });
+    document.documentElement.lang = (lang === 'zh') ? 'zh-Hant' : 'en';
+    btn.textContent = (lang === 'zh') ? 'English' : '中文';
+  }
+  var init = stored() || ((navigator.language || 'en').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
+  apply(init);
+  btn.addEventListener('click', function () {
+    var next = (document.documentElement.lang === 'zh-Hant') ? 'en' : 'zh';
+    apply(next); save(next);
+  });
+})();
+</script>
+
+</main>
+</body>
+</html>
